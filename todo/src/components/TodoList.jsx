@@ -6,7 +6,7 @@ export default function TodoList(props) {
   return (
     <div>
      {state.map(todo =>{
-       return <Todos todo={todo} />
+       return <Todos todo={todo} key={todo.id}/>
      })}
     </div>
   );

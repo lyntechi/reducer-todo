@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 
 export default function TodoForm(props) {
   const { dispatch } = props;
@@ -6,7 +6,7 @@ export default function TodoForm(props) {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    setInputText('')
+    setInputText("");
   };
 
   const handleChanges = (e) => {
@@ -14,7 +14,12 @@ export default function TodoForm(props) {
   };
   return (
     <form onSubmit={submitHandler}>
-      <input type="text" value={inputText} onChange={handleChanges} name="inputText" />
+      <input
+        type="text"
+        value={inputText}
+        onChange={handleChanges}
+        name="inputText"
+      />
       <br />
       <button
         onClick={(e) => {
