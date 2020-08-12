@@ -1,10 +1,11 @@
 import React from "react";
 
 export default function Todos(props) {
-  const { state } = props;
+  const { todo } = props;
+
   return (
     <div>
-      <p>{state.item}</p>
+      <p>{todo.item}</p>
     </div>
   );
 }

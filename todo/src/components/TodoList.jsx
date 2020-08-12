@@ -5,7 +5,9 @@ export default function TodoList(props) {
   const { state } = props;
   return (
     <div>
-     <Todos state={state} />
+     {state.map(todo =>{
+       return <Todos todo={todo} />
+     })}
     </div>
   );
 }

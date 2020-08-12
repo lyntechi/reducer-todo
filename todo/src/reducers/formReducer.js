@@ -1,23 +1,28 @@
-export const initialState = 
+export const initialState = {
+  todo: [
     {
-  item: "Learn about reducers",
-  completed: false,
-  id: 3892987589,
-}
+      item: "Learn about reducers",
+      completed: false,
+      id: 3892987589,
+    },
+  ],
+};
 
-
-export const reducer = (state, action) => {
+export const reducer = (state = initialState, action) => {
   switch (action.type) {
     case "ADD_TODO":
-      return {
-        ...state,
+      const newTodo = {
         item: action.payload,
         completed: false,
-        id: Date.now()
+        id: Date.now(),
       };
-      default:
-          return{
-              state
-          }
+      return {
+        ...state,
+        todo: [...state.todo, newTodo ]
+      };
+    default:
+      return {
+        state,
+      };
   }
 };
