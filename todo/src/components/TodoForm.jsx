@@ -1,17 +1,26 @@
-import React from 'react'
+import React from "react";
 
+export default function TodoForm(props) {
+  const { newTodo, dispatch, setNewTodo } = props;
 
+  const submitHandler = (e) => {
+    e.preventDefault();
+  };
 
-export default function TodoForm(props){
-    const{newTodo, dispatch}=props;
-
-    return(
-        <form>
-            <input type="text"/><br/>
-            <button onClick={()=>{
-                dispatch({type: "ADD_TODO", payload: newTodo})
-                
-            }}>Add</button>
-        </form>
-    )
+  const handleChanges = (e)=>{
+   setNewTodo({...newTodo, [e.target.name]: e.target.value})
+  }
+  return (
+    <form onSubmit={submitHandler}>
+      <input type="text" value={newTodo} onChange={handleChanges}/>
+      <br />
+      <button
+        onClick={(e) => {
+          dispatch({ type: "ADD_TODO", payload: newTodo });
+        }}
+      >
+        Add
+      </button>
+    </form>
+  );
 }

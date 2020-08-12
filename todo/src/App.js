@@ -9,11 +9,11 @@ function App() {
   const [state, dispatch] = useReducer(reducer, initialState);
   const [newTodo, setNewTodo] = useState("");
 
-  console.log("this is state", state);
+  console.log("this is current state", state);
   return (
     <div className="App">
       <h1>Todo App</h1>
-      <TodoForm dispatch={dispatch} newTodo={newTodo}/>
+      <TodoForm dispatch={dispatch} newTodo={newTodo} setNewTodo={setNewTodo}/>
       <TodoList state={state}/>
     </div>
   );
