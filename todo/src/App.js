@@ -1,20 +1,22 @@
-import React, {useState, useReducer} from "react";
+import React, { useReducer } from "react";
 import "./App.css";
 import TodoForm from "./components/TodoForm";
-import TodoList from './components/TodoList'
-import {initialState, reducer} from './reducers/formReducer'
+import TodoList from "./components/TodoList";
+import { initialState, reducer } from "./reducers/formReducer";
 
 function App() {
-
   const [state, dispatch] = useReducer(reducer, initialState);
-  const [newTodo, setNewTodo] = useState("");
+ 
 
   console.log("this is current state", state);
+
+ 
+
   return (
     <div className="App">
       <h1>Todo App</h1>
-      <TodoForm dispatch={dispatch} newTodo={newTodo} setNewTodo={setNewTodo}/>
-      <TodoList state={state}/>
+      <TodoForm dispatch={dispatch}/>
+      <TodoList state={state} />
     </div>
   );
 }
