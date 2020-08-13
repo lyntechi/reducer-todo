@@ -1,11 +1,18 @@
 import React from "react";
+import { toggleTodo } from '../actions/TodoListActions'
+import connect from "react-redux"
 
-export default function Todos(props) {
-  const { todo } = props;
+export function Todos(props) {
+  const { todo, index } = props;
 
   return (
-    <div>
-      <p>{todo.item}</p>
+    <div onClick={() => todo.toggleTodo(index)}>
+      <p>{todo.item}
+      
+      {todo.completed && <i className="completed" />}</p>
+    
     </div>
   );
 }
+
+export default connect(null, {toggleTodo})(Todos);
